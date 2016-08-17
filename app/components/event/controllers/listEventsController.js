@@ -25,25 +25,12 @@ angular
     //   })
 
 
-    var eventToCreate = {
-      event: {
-        name: "Event created by client",
-        description: "hehehehe",
-        tags: [
-          { name: "Fint!"}
-        ],
-        position: {
-          address: "Ståthållaregatan 54"
-        }
-      }
 
-    }
-
-    EventService.createEvent(eventToCreate)
+    EventService.deleteEvent(1)
       .then(function(response) {
         console.log(response);
       })
       .catch(function(error) {
         console.log(error);
-      });
+      })
   }

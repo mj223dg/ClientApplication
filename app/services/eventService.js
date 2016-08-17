@@ -41,12 +41,24 @@ function EventService(API, $http, $cacheFactory) {
       return $http.post(url, event, config);
     },
 
-    updateEvent: function() {
+    updateEvent: function(id, event) {
+      var url = API.baseUrl + "events/" + id;
+      var config = {
+        method: "PUT",
+        headers: headers
+      };
 
+      return $http.put(url, event, config);
     },
 
-    deleteEvent: function() {
+    deleteEvent: function(id) {
+      var url = API.baseUrl + "events/" + id;
+      var config = {
+        method: "DELETE",
+        headers: headers
+      };
 
+      return $http.delete(url, config);
     }
   };
 

@@ -1,12 +1,12 @@
 <div>
   New Event!
 </div>
-<form name="form" id="new-event-form" novalidate role="form" ng-submit="event.create()" >
+<form name="form" id="new-event-form" novalidate role="form" ng-submit="ctrl.createEvent()" >
 
   <div class="form-group" ng-class="{true: 'error'}[submitted && form.name.$invalid]">
     <label for="name">Name</label>
 
-    <input class="form-control" type="text" name="name" ng-model="event.name" required />
+    <input class="form-control" type="text" name="name" ng-model="ctrl.name" required />
     <span class="help-inline" ng-show="submitted && form.name.$error.required">Required</span>
 
   </div>
@@ -14,20 +14,20 @@
   <div class="form-group" ng-class="{true: 'error'}[submitted && form.address.$invalid]">
     <label for="address">Address</label>
 
-    <input class="form-control" type="text" name="address" ng-model="event.address" required />
+    <input class="form-control" type="text" name="address" ng-model="ctrl.address" required />
     <span class="help-inline" ng-show="submitted && form.address.$error.required">Required</span>
 
   </div>
 
   <div class="form-group" ng-class="{true: 'error'}[submitted && form.description.$invalid]">
     <label for="description">Description</label>
-    <textarea class="form-control" name="description" id="description" ng-model="event.description" required="" class="validate materialize-textarea"></textarea>
+    <textarea class="form-control" name="description" id="description" ng-model="ctrl.description" required="" class="validate materialize-textarea"></textarea>
     <span class="help-inline" ng-show="submitted && form.description.$error.required">Required</span>
 
   </div>
 
   <div class="input-field">
-    <p ng-repeat="tag in event.tags">
+    <p ng-repeat="tag in ctrl.tags">
       <input type="checkbox" id="tag-{{tag.id}}" value="{{tag.name}}" ng-model="tag.selected" />
       <label for="tag-{{tag.id}}">{{tag.name}}</label>
     </p>

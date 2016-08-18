@@ -47,7 +47,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     })
     .state("deleteEvent", {
       url: "/events/:id/delete",
-      controller: "DeleteEventControllersingle",
+      controller: "DeleteEventController",
       templateUrl: "app/components/event/views/deleteEvent.html",
       controllerAs: "ctrl",
       resolve: {

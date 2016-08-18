@@ -24,6 +24,7 @@ function MapController(NgMap, EventService, AuthenticationService) {
       self.map.addListener("click", closePopupWindow);
       var markers = [];
       response.data.events.forEach(function(event) {
+        console.log(event.position);
         var marker = new google.maps.Marker({
           position: {
             lat: event.position.latitude,

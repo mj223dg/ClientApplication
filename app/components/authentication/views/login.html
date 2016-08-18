@@ -1,0 +1,24 @@
+<div>
+  <h2>Sign in</h2>
+  <form name="login-form" ng-submit="ctrl.login()" role="form">
+    <div
+      ng-class="{ 'has-error': form.username.$dirty &&
+                               form.username.$error.required }"
+      class="form-group"
+    >
+      <input type="text" name="username" id="username" ng-model="ctrl.username" placeholder="=Användarnamn" class="form-control" required/>
+      <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Please enter username</span>
+    </div>
+
+    <div
+      ng-class="{ 'has-error': form.password.$dirty &&
+                               form.password.$error.required }"
+      class="form-group"
+    >
+    <input type="password" name="password" id="password" ng-model="ctrl.password" placeholder="Lösenord" class="form-control" required />
+    <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Please enter password</span>
+    </div>
+    <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Login</button>
+  </form>
+
+</div>

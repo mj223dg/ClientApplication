@@ -1,5 +1,5 @@
 angular
-  .module("pub-map")
+  .module("event-map")
   .factory("AuthenticationService", AuthenticationService);
 
 function AuthenticationService($http, API, $rootScope) {
@@ -9,7 +9,8 @@ function AuthenticationService($http, API, $rootScope) {
 
   var store = {
     authenticateUser: function(email, password) {
-
+      console.log(email);
+      console.log(password);
     },
 
     loginUser: function(user) {

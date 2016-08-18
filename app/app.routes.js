@@ -22,6 +22,17 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: "app/components/event/views/newEvent.html",
       controllerAs: "ctrl"
     })
+    .state("login", {
+      url: "/login",
+      controller: "LoginController",
+      controllerAs: "ctrl",
+      templateUrl: "app/components/authentication/views/login.html"
+    })
+    .state("logout", {
+      url: "/logout",
+      controller: "LogoutController"
+    })
+
 
 
 

@@ -12,6 +12,6 @@
 
 <div>
   <button class="btn btn-primary" onclick="history.back()">Back</button>
-  <a ui-sref="updateEvent" ng-show="loggedIn" class="btn btn-success">Edit</a>
-  <a ui-sref="deleteEvent" ng-show="loggedIn" class="btn btn-danger">Delete</a>
+  <a ui-sref="updateEvent({id: ctrl.event.id})" ng-show="loggedIn" class="btn btn-success">Edit</a>
+  <a ui-sref="deleteEvent({id: ctrl.event.id})" ng-show="loggedIn" class="btn btn-danger">Delete</a>
 </div>

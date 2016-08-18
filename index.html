@@ -46,7 +46,7 @@
       <div class="row">
           <div ui-view></div>
       </div>
-      <div class="row">
+      <div class="row" ng-show="loggedIn">
         <!-- map -->
         <event-map></event-map>
       </div>
@@ -72,6 +72,8 @@
     <script src="/app/components/event/controllers/listEventsController.js"></script>
     <script src="/app/components/event/controllers/addEventController.js"></script>
     <script src="/app/components/event/controllers/singleEventController.js"></script>
+    <script src="/app/components/event/controllers/deleteEventController.js"></script>
+    <script src="/app/components/event/controllers/updateEventController.js"></script>
     <script src="/app/components/map/controllers/mapController.js"></script>
     <script src="/app/components/authentication/controllers/loginController.js"></script>
     <script src="/app/components/authentication/controllers/logoutController.js"></script>

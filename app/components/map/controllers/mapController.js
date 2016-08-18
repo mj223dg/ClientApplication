@@ -2,8 +2,10 @@ angular
   .module("event-map")
   .controller("MapController", MapController);
 
-function MapController(NgMap, EventService) {
+function MapController(NgMap, EventService, AuthenticationService) {
   var self = this;
+  console.log(AuthenticationService.getCurrentUser());
+  if (!AuthenticationService.getCurrentUser()) return; // prevent call to api if not logged in
   self.markers = [];
   self.popupWindow;
 
@@ -11,6 +13,8 @@ function MapController(NgMap, EventService) {
     .getMap()
     .then(function(map) {
       self.map = map;
+      var latLng = new google.maps.LatLng({ lat: 60, lng: 20 });
+      map.setCenter(latLng);
 
     })
     .then(EventService.getEvents)

@@ -6,12 +6,14 @@ function EventService(API, $http, $cacheFactory, AuthenticationService) {
 
   var headers = {
     "Accept": API.format,
-    "apikey": API.key,
-    "Authorization": "Bearer " + AuthenticationService.getCurrentUser().jwt
+    "apikey": API.key
   };
 
   var store = {
     getEvents: function() {
+      console.log("get Events!!");
+      console.log(this);
+      headers.Authorization = "Bearer " + AuthenticationService.getCurrentUser().jwt
       var url = API.baseUrl + "api/events";
       var config = {
         method: "GET",
@@ -22,6 +24,7 @@ function EventService(API, $http, $cacheFactory, AuthenticationService) {
     },
 
     getEventById: function(id) {
+      headers.Authorization = "Bearer " + AuthenticationService.getCurrentUser().jwt
       var url = API.baseUrl + "api/events/" + id;
       var config = {
         method: "GET",
@@ -32,6 +35,7 @@ function EventService(API, $http, $cacheFactory, AuthenticationService) {
     },
 
     createEvent: function(event) {
+      headers.Authorization = "Bearer " + AuthenticationService.getCurrentUser().jwt
       var url = API.baseUrl + "api/events";
       var config = {
         method: "POST",
@@ -42,6 +46,7 @@ function EventService(API, $http, $cacheFactory, AuthenticationService) {
     },
 
     updateEvent: function(id, event) {
+      headers.Authorization = "Bearer " + AuthenticationService.getCurrentUser().jwt
       var url = API.baseUrl + "api/events/" + id;
       var config = {
         method: "PUT",
@@ -52,6 +57,7 @@ function EventService(API, $http, $cacheFactory, AuthenticationService) {
     },
 
     deleteEvent: function(id) {
+      headers.Authorization = "Bearer " + AuthenticationService.getCurrentUser().jwt;
       var url = API.baseUrl + "api/events/" + id;
       var config = {
         method: "DELETE",
@@ -59,6 +65,16 @@ function EventService(API, $http, $cacheFactory, AuthenticationService) {
       };
 
       return $http.delete(url, config);
+    },
+
+    getTags: function() {
+      headers.Authorization = "Bearer " + AuthenticationService.getCurrentUser().jwt
+      var url = API.baseUrl + "api/tags";
+      var config = {
+        method: "GET",
+        headers: headers
+      }
+      return $http.get(url, config);
     }
   };
 

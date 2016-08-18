@@ -54,7 +54,9 @@ function AuthenticationService($http, API, $rootScope) {
     console.log("Init authservice");
     console.log(localStorage.getItem(lsStorageKey));
     currentUser = JSON.parse(localStorage.getItem(lsStorageKey));
-    $rootScope.loggedIn = true;
+    console.log(currentUser);
+
+    $rootScope.loggedIn = currentUser ? true : false;
   }
 
   return store;

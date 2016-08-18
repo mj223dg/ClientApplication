@@ -4,33 +4,15 @@ angular
 
   function ListEventsController(EventService) {
     var self = this;
-    self.dummies = ["hejsan", "hoppsan", "flörrp"];
-    console.log("sdh");
-
-
-    // EventService.getEvents()
-    //   .then(function(response) {
-    //     return response.data.events;
-    //   })
-    //   .catch(function(error) {
-    //     console.log(error);
-    //   });
-    //
-    // EventService.getEventById(1)
-    //   .then(function(response) {
-    //     console.log(response.data);
-    //   })
-    //   .catch(function(error) {
-    //     console.log(error);
-    //   })
-
-
-
-    EventService.deleteEvent(1)
+    self.title = "All events";
+    EventService
+      .getEvents()
       .then(function(response) {
-        console.log(response);
+        self.events = response.data.events;
+        console.log(response.data.events);
       })
       .catch(function(error) {
+        // flash
         console.log(error);
-      })
+      });
   }

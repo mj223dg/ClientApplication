@@ -1,1 +1,31 @@
-<p> hej </p>
+<div>
+  <input type="text" placeholder="sök" ng-model="search" />
+</div>
+
+<table class="table">
+  <thead>
+    <th>
+      Namn
+    </th>
+    <th>
+      Beskrivning
+    </th>
+    <th>
+      Adress
+    </th>
+  </thead>
+  <tbody>
+    <tr data-ng-repeat="event in ctrl.events | filter: search">
+      <td>
+        <a ui-sref="event({ id: event.id })">{{event.name}}</a>
+      </td>
+      <td>
+        {{ event.position.address }}
+      </td>
+      <td>
+        {{ event.description }}
+      </td>
+    </tr>
+
+  </tbody>
+</div>

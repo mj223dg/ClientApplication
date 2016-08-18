@@ -28,6 +28,18 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: "app/components/event/views/newEvent.html",
       controllerAs: "ctrl"
     })
+    .state("updateEvent", {
+      url: "/events/:id/update",
+      controller: "UpdateEventController",
+      templateUrl: "app/components/event/views/updateEvent.html",
+      controllerAs: "ctrl"
+    })
+    .state("deleteEvent", {
+      url: "/events/:id/delete",
+      controller: "DeleteEventController",
+      templateUrl: "app/components/event/views/deleteEvent.html",
+      controllerAs: "ctrl"
+    })
     .state("login", {
       url: "/login",
       controller: "LoginController",
@@ -38,13 +50,4 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       url: "/logout",
       controller: "LogoutController"
     })
-
-
-
-
-
-
-
-
-
 });

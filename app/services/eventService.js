@@ -2,17 +2,17 @@ angular
   .module("event-map")
   .factory("EventService", EventService);
 
-function EventService(API, $http, $cacheFactory) {
+function EventService(API, $http, $cacheFactory, AuthenticationService) {
 
   var headers = {
     "Accept": API.format,
     "apikey": API.key,
-    "Authorization": "Bearer " + API.jwt
+    "Authorization": "Bearer " + AuthenticationService.getCurrentUser().jwt
   };
 
   var store = {
     getEvents: function() {
-      var url = API.baseUrl + "events";
+      var url = API.baseUrl + "api/events";
       var config = {
         method: "GET",
         headers: headers
@@ -22,7 +22,7 @@ function EventService(API, $http, $cacheFactory) {
     },
 
     getEventById: function(id) {
-      var url = API.baseUrl + "events/" + id;
+      var url = API.baseUrl + "api/events/" + id;
       var config = {
         method: "GET",
         headers: headers
@@ -32,7 +32,7 @@ function EventService(API, $http, $cacheFactory) {
     },
 
     createEvent: function(event) {
-      var url = API.baseUrl + "events";
+      var url = API.baseUrl + "api/events";
       var config = {
         method: "POST",
         headers: headers
@@ -42,7 +42,7 @@ function EventService(API, $http, $cacheFactory) {
     },
 
     updateEvent: function(id, event) {
-      var url = API.baseUrl + "events/" + id;
+      var url = API.baseUrl + "api/events/" + id;
       var config = {
         method: "PUT",
         headers: headers
@@ -52,7 +52,7 @@ function EventService(API, $http, $cacheFactory) {
     },
 
     deleteEvent: function(id) {
-      var url = API.baseUrl + "events/" + id;
+      var url = API.baseUrl + "api/events/" + id;
       var config = {
         method: "DELETE",
         headers: headers

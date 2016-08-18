@@ -2,7 +2,7 @@ angular
   .module("event-map")
   .controller("ListEventsController", ListEventsController);
 
-  function ListEventsController(EventService) {
+  function ListEventsController(EventService, Flash) {
     var self = this;
     self.title = "All events";
     self.filter = {};
@@ -22,6 +22,8 @@ angular
       })
       .catch(function(error) {
         // flash
+        var message = "<p>Something went wrong when fetching data from the API. Try again later!</p>";
+        Flash.create("danger", message, 0, null, true);
         console.log(error);
       });
 

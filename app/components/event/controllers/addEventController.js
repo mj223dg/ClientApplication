@@ -2,7 +2,7 @@ angular
   .module("event-map")
   .controller("AddEventController", AddEventController);
 
-  function AddEventController(EventService, $location) {
+  function AddEventController(EventService, $location, Flash) {
     console.log("AddEventController");
 
     var self = this;
@@ -13,6 +13,8 @@ angular
         self.tags = response.data;
       })
       .catch(function(error) {
+        var message = "<p>Something went wrong when getting data from the API</p>";
+        Flash.create("danger", message, 0, null, true);
         console.log(error);
       });
 
@@ -34,10 +36,13 @@ angular
 
       EventService.createEvent(event)
         .then(function(response) {
-          //TODO_ FLASH
+          var message = "<p>You created an event!!</p>"
+          Flash.create("success", message, 0, null, true);
           $location.url("/events/" + response.data.id);
         })
         .catch(function(error) {
+          var message = "<p>Something went wrong when creating the event, please try again</p>";
+          Flash.create("danger", message, 0, null, true);
           console.log(error);
         })
 

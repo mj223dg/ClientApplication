@@ -2,7 +2,7 @@ angular
   .module("event-map")
   .controller("UpdateEventController", UpdateEventController);
 
-  function UpdateEventController(EventService, $stateParams, $location) {
+  function UpdateEventController(EventService, $stateParams, $location, Flash) {
     var self = this;
     EventService
       .getEventById($stateParams.id)
@@ -25,10 +25,14 @@ angular
 
       EventService.updateEvent(event, self.event.id)
         .then(function(response) {
+          var message = "<p>Event updated!</p>"
+          Flash.create("success", message, 0, null, true);
           $location.url("/events/" + self.event.id);
         })
         .catch(function(error) {
           console.log(error);
+          var message = "<p>Something went wrong when updating the event. Try again later!</p>";
+          Flash.create("danger", message, 0, null, true);
         })
     }
   }

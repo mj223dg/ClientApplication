@@ -2,17 +2,17 @@
 <form name="form" id="edit-evemt-form" novalidate role="form"
   ng-submit="ctrl.updateEvent()" ng-show="ctrl.event">
 
-  <div class="input-field" ng-class="{true: 'error'}[submitted && form.name.$invalid]">
-    <label class="active" for="name">Name</label>
-    <input type="text" name="name" ng-model="ctrl.event.name" required />
+  <div class="form-group" ng-class="{true: 'error'}[submitted && form.name.$invalid]">
+    <label for="name">Name</label>
+    <input class="form-control" type="text" name="name" ng-model="ctrl.event.name" required />
     <span class="help-inline" ng-show="submitted && form.name.$error.required">Required</span>
   </div>
 
 
-  <div class="input-field" ng-class="{true: 'error'}[submitted && touched && form.description.$invalid]">
-    <label class="active" for="description">description</label>
+  <div class="form-group" ng-class="{true: 'error'}[submitted && touched && form.description.$invalid]">
+    <label for="description">description</label>
 
-    <input type="text" name="description" ng-model="ctrl.event.description" required />
+    <input type="text" class="form-control" name="description" ng-model="ctrl.event.description" required />
     <span class="help-inline" ng-show="submitted && touched && form.description.$error.required">Required</span>
 
   </div>

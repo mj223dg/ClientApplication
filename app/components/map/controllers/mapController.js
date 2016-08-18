@@ -45,7 +45,8 @@ function MapController(NgMap, EventService, AuthenticationService) {
       self.markers = markers;
     })
     .catch(function(error) {
-
+      var message = "<p>Error loading the map! Try again later</p>";
+      Flash.create("danger", message, 0, null, true);
     });
 
   function closePopupWindow() {

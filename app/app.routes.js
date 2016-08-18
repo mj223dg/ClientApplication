@@ -4,7 +4,12 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
 
   $stateProvider
-
+    .state("home", {
+      url: "/",
+      controller: "ListEventsController",
+      templateUrl: "app/components/event/views/eventList.html",
+      controllerAs: "ctrl"
+    })
     .state("listEvents", {
       url: "/events",
       controller: "ListEventsController",

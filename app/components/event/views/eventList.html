@@ -17,7 +17,7 @@
   <tbody>
     <tr data-ng-repeat="event in ctrl.events | filter: search">
       <td>
-        <a ui-sref="event({ id: event.id })">{{event.name}}</a>
+        <a ui-sref="singleEvent({ id: event.id })">{{event.name}}</a>
       </td>
       <td>
         {{ event.position.address }}

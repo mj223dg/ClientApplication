@@ -16,6 +16,12 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: "app/components/event/views/eventList.html",
       controllerAs: "ctrl"
     })
+    .state("singleEvent", {
+      url: "/events/:id",
+      controller: "SingleEventController",
+      templateUrl: "app/components/event/views/singleEvent.html",
+      controllerAs: "ctrl"
+    })
     .state("addEvent", {
       url: "/events/new",
       controller: "AddEventController",

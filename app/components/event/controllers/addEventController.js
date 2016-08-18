@@ -3,5 +3,5 @@ angular
   .controller("AddEventController", AddEventController);
 
   function AddEventController(EventService) {
-    
+    console.log("AddEventController");
   }

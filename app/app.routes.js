@@ -17,15 +17,6 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         auth: authenicate
       }
     })
-    .state("singleEvent", {
-      url: "/events/:id",
-      controller: "SingleEventController",
-      templateUrl: "app/components/event/views/singleEvent.html",
-      controllerAs: "ctrl",
-      resolve: {
-        auth: authenicate
-      }
-    })
     .state("addEvent", {
       url: "/events/new",
       controller: "AddEventController",
@@ -35,6 +26,16 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         auth: authenicate
       }
     })
+    .state("singleEvent", {
+      url: "/events/:id",
+      controller: "SingleEventController",
+      templateUrl: "app/components/event/views/singleEvent.html",
+      controllerAs: "ctrl",
+      resolve: {
+        auth: authenicate
+      }
+    })
+
     .state("updateEvent", {
       url: "/events/:id/update",
       controller: "UpdateEventController",
@@ -46,7 +47,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     })
     .state("deleteEvent", {
       url: "/events/:id/delete",
-      controller: "DeleteEventController",
+      controller: "DeleteEventControllersingle",
       templateUrl: "app/components/event/views/deleteEvent.html",
       controllerAs: "ctrl",
       resolve: {

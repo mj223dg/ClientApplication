@@ -4,7 +4,7 @@ angular
 
 function SingleEventController(EventService, $stateParams) {
   var self = this;
-
+  console.log("SingleEventController");
   EventService.getEventById($stateParams.id)
     .then(function(response) {
       console.log(response);

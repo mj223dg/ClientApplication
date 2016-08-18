@@ -35,6 +35,7 @@ function EventService(API, $http, $cacheFactory, AuthenticationService) {
     },
 
     createEvent: function(event) {
+      console.log("create event");
       headers.Authorization = "Bearer " + AuthenticationService.getCurrentUser().jwt
       var url = API.baseUrl + "api/events";
       var config = {

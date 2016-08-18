@@ -9,7 +9,6 @@ angular
       console.log($stateParams);
       EventService.deleteEvent($stateParams.id)
         .then(function(response) {
-          console.log(response);
           console.log("deleted!");
           $state.go("listEvents");
         })

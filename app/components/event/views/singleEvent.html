@@ -1,1 +1,11 @@
-<p>Single Event</p>
+<h2>{{ctrl.event.name}}</h1>
+<h4>Description: </h4>
+<p>{{ctrl.event.description}}</p>
+<h4>Address</h4>
+<p>{{ctrl.event.position.address}}</p>
+<div class="tags">
+  <h4>Tags</h4>
+  <p data-ng-repeat="tag in ctrl.event.tags">
+    {{tag.name}}
+  </p>
+<div>

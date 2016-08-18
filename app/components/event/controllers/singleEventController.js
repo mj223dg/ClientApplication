@@ -7,7 +7,8 @@ function SingleEventController(EventService, $stateParams) {
 
   EventService.getEventById($stateParams.id)
     .then(function(response) {
-      self.event = response.data.event;
+      console.log(response);
+      self.event = response.data;
     })
     .catch(function(error) {
       console.log(error);
